@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -39,7 +37,7 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-    --creative-ai-gradient: linear-gradient(180deg, #F55C7A 0%, #F6BC66 100%);
+    --creative-ai-gradient: linear-gradient(180deg, #f55c7a 0%, #f6bc66 100%);
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -87,7 +85,7 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
- 
+
 @layer utilities {
   /* border-border utility class için alternatif */
   .border-border {
@@ -100,7 +98,7 @@
   }
 }
 .text-vivid {
-  background: linear-gradient(180deg, #F55C7A 0%, #F6BC66 100%);
+  background: linear-gradient(180deg, #f55c7a 0%, #f6bc66 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

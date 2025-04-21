@@ -3,6 +3,7 @@ import { User } from "@prisma/client";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
 import SearchBar from "./upper-info-searchbar";
+import ThemeSwitcher from "@/components/global/mode-toggle";
 
 type Props = {
   user: User;
@@ -19,6 +20,7 @@ const UpperInfoBar = ({ user }: Props) => {
 
       <div className="w-full max-w-[95%] flex items-center justify-between gap-4 flex-wrap">
         <SearchBar />
+        <ThemeSwitcher />
       </div>
     </header>
   );
