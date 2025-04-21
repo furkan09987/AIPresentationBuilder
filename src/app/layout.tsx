@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/provider/theme-provider";
 import { Toaster } from "sonner";
 import { dark } from "@clerk/themes";
 import { ClerkProvider } from "@clerk/nextjs";
-import {NavMain} from "@/components/global/app-sidebar/nav-main";
+import { NavMain } from "@/components/global/app-sidebar/nav-main";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -43,7 +43,7 @@ const navItems = [
 ];
 
 export const metadata: Metadata = {
-  title: "Vivid - AI PPT Generator",
+  title: "AI Destekli Sunum Hazırlama",
   description: "AI destekli sunum hazırlayın",
   icons: {
     icon: "/favicon.ico",
@@ -69,7 +69,13 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div style={{ display: "flex" }}>
-              <div style={{ width: "200px", height: "100vh", background: "#1a1a1a" }}>
+              <div
+                style={{
+                  width: "200px",
+                  height: "100vh",
+                  background: "#1a1a1a",
+                }}
+              >
                 <NavMain items={navItems} />
               </div>
               <main style={{ flex: 1 }}>{children}</main>
