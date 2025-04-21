@@ -6,7 +6,6 @@ import SearchBar from "./upper-info-searchbar";
 
 type Props = {
   user: User;
-  children: React.ReactNode;
 };
 
 const UpperInfoBar = ({ user }: Props) => {

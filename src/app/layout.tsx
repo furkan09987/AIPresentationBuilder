@@ -5,7 +5,6 @@ import { ThemeProvider } from "@/provider/theme-provider";
 import { Toaster } from "sonner";
 import { dark } from "@clerk/themes";
 import { ClerkProvider } from "@clerk/nextjs";
-import { NavMain } from "@/components/global/app-sidebar/nav-main";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,30 +16,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-
-// Icon components will be mapped in the client component NavMain
-const navItems = [
-  {
-    title: "Home",
-    url: "/",
-    iconName: "Home", // Use string identifier
-  },
-  {
-    title: "Templates",
-    url: "/templates",
-    iconName: "FileText", // Use string identifier
-  },
-  {
-    title: "Trash",
-    url: "/trash",
-    iconName: "Trash", // Use string identifier
-  },
-  {
-    title: "Settings",
-    url: "/settings",
-    iconName: "Settings", // Use string identifier
-  },
-];
 
 export const metadata: Metadata = {
   title: "AI Destekli Sunum Hazırlama",
@@ -68,18 +43,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div style={{ display: "flex" }}>
-              <div
-                style={{
-                  width: "200px",
-                  height: "100vh",
-                  background: "#1a1a1a",
-                }}
-              >
-                <NavMain items={navItems} />
-              </div>
-              <main style={{ flex: 1 }}>{children}</main>
-            </div>
+            {children}
             <Toaster />
           </ThemeProvider>
         </body>

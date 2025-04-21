@@ -29,8 +29,9 @@ const Layout = async ({ children }: Props) => {
           user={checkUser.user}
           recentProjects={recentProjects.data || []}
         />
-        <SidebarInset>
-          <UpperInfoBar user={checkUser.user}>{children}</UpperInfoBar>
+        <SidebarInset className="px-8">
+          <UpperInfoBar user={checkUser.user} />
+          {children}
         </SidebarInset>
       </SidebarProvider>
     </>

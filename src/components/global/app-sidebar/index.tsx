@@ -18,6 +18,9 @@ import { Button } from "@/components/ui/button";
 import { NavMain } from "./nav-main";
 import { data } from "@/lib/constants";
 import NavFooter from "./nav-footer";
+import Image from "next/image";
+
+import logo from "@/assets/logo.png"; // Import logo image
 
 // RecentOpen bileşeni: recentProjects prop'unu alacak şekilde güncellendi
 type RecentOpenProps = {
@@ -68,30 +71,16 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
 const AppSidebar = ({ recentProjects, user, ...props }: AppSidebarProps) => {
   // Removed SidebarProvider wrapper
   return (
-    <Sidebar
-      collapsible="icon"
-      className="max-w-[212px] bg-background-90"
-      {...props}
-    >
+    <Sidebar variant="inset" collapsible="icon" className="" {...props}>
       <SidebarHeader className="pt-6 px-2 pb-0">
         <SidebarMenuButton
           size="lg"
           className="data-[state=open]:text-sidebar-accent-foreground"
         >
           <div className="flex aspect-square size-8 items-center justify-center rounded-lg">
-            <Avatar className="h-10 w-10 rounded-full">
-              <AvatarImage
-                src={user.profileImage || "/default-avatar.png"}
-                alt="User avatar"
-              />
-              <AvatarFallback className="bg-primary text-white">
-                {user.name?.charAt(0) || "U"}
-              </AvatarFallback>
-            </Avatar>
+            <Image src={logo} alt="Logo" width={32} height={32} />
           </div>
-          <span className="truncate text-primary text-3xl font-semibold">
-            Sunum Hazırlama
-          </span>
+          <span className="truncate text-primary text-2xl ">Sunum Yap</span>
         </SidebarMenuButton>
       </SidebarHeader>
       <SidebarContent className="px-2 mt-10 gap-y-6">

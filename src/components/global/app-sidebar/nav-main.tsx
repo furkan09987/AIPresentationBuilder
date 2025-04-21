@@ -39,35 +39,34 @@ const NavMain = ({
   const pathname = usePathname();
 
   return (
-    <SidebarProvider>
-      <SidebarGroup className="p-0">
-        <SidebarMenu>
-          {items.map((item) => {
-            const IconComponent = iconComponents[item.iconName]; // Get the component from the map
-            return (
-              <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton
-                  asChild
-                  tooltip={"item.title"}
-                  className={`${pathname.includes(item.url) && "bg-muted"}`}
+    <SidebarGroup className="p-0">
+      <SidebarMenu>
+        {items.map((item) => {
+          const IconComponent = iconComponents[item.iconName]; // Get the component from the map
+          return (
+            <SidebarMenuItem key={item.title}>
+              <SidebarMenuButton
+                asChild
+                tooltip={"item.title"}
+                className={`${pathname.includes(item.url) && "bg-muted"}`}
+              >
+                <Link
+                  prefetch={true}
+                  href={item.url}
+                  className={`text-lg ${
+                    pathname.includes(item.url) && "font-bold"
+                  }`}
                 >
-                  <Link
-                    href={item.url}
-                    className={`text-lg ${
-                      pathname.includes(item.url) && "font-bold"
-                    }`}
-                  >
-                    {IconComponent && <IconComponent className="text-lg" />}{" "}
-                    {/* Render the mapped component */}
-                    <span>{item.title}</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            );
-          })}
-        </SidebarMenu>
-      </SidebarGroup>
-    </SidebarProvider>
+                  {IconComponent && <IconComponent className="text-lg" />}{" "}
+                  {/* Render the mapped component */}
+                  <span>{item.title}</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          );
+        })}
+      </SidebarMenu>
+    </SidebarGroup>
   );
 };
 

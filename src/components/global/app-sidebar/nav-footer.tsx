@@ -53,7 +53,7 @@ const NavFooter = ({ prismaUser }: { prismaUser: User }) => {
               size={"lg"}
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <UserButton />
+              <UserButton signInUrl="/sign-in" />
               <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
                 <span className="truncate font-semibold">{user?.fullName}</span>
                 <span className="truncate text-secondary">

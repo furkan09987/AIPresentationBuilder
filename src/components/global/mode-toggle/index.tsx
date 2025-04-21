@@ -16,7 +16,11 @@ const ThemeSwitcher = () => {
 
   return (
     <div>
-      <switch></switch>
+      <Switch
+        checked={theme === "light"}
+        className="h-10 w-20 pl-1 data-[state=checked]:bg-primary-80"
+        aria-label="Toggle dark mode"
+      ></Switch>
     </div>
   );
 };
