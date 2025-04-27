@@ -13,6 +13,5 @@ export default async function ProtectedLayout({
     redirect("/sign-in?error=unauthorized");
   }
 
-  // HTML ve BODY etiketlerini KALDIRIYORUZ
   return <>{children}</>;
 }

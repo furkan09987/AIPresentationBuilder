@@ -1,9 +1,13 @@
+"use client";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { User } from "@prisma/client";
 import { Separator } from "@/components/ui/separator";
 import React from "react";
 import SearchBar from "./upper-info-searchbar";
 import ThemeSwitcher from "@/components/global/mode-toggle";
+import { Button } from "@/components/ui/button";
+import { Upload } from "lucide-react";
+import NewProjectButton from "./new-project-button";
 
 type Props = {
   user: User;
@@ -21,6 +25,13 @@ const UpperInfoBar = ({ user }: Props) => {
       <div className="w-full max-w-[95%] flex items-center justify-between gap-4 flex-wrap">
         <SearchBar />
         <ThemeSwitcher />
+        <div className="flex flex-wrap gap-4 items-center justify-end">
+          <Button className="bg-primary-80 rounded-lg hover:bg-background-80 text-primary font-semibold cursor-not-allowed">
+            <Upload />
+            İçe Aktar
+          </Button>
+          <NewProjectButton user={user} />
+        </div>
       </div>
     </header>
   );

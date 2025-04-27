@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Next.js Dev Tools'u devre dışı bırakma
-  experimental: {
-    instrumentationHook: false, // Deneysel özellikleri devre dışı bırakır
-  },
   // Geliştirme göstergelerini devre dışı bırakma
   devIndicators: false,
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+    return config;
+  },
 };
 
 module.exports = nextConfig;
