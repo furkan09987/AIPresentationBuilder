@@ -3,7 +3,6 @@ import CreatePageSkeleton from "./_components/CreatePage/CreatePageSkeleton";
 import RenderPage from "./_components/RenderPage";
 
 type Props = {};
-
 const Page = (props: Props) => {
   return (
     <main className="w-full h-full pt-6">

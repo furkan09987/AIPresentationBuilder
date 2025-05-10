@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { containerVariants, itemVariants } from "@/lib/constants";
 import { ChevronLeft, RotateCcw } from "lucide-react";
@@ -19,6 +19,7 @@ import {
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { OutlineCard } from "@/lib/types";
+import { title } from "process";
 
 type Props = {
   onBack: () => void;
@@ -52,8 +53,13 @@ const CreateAI = ({ onBack }: Props) => {
 
   const [noOfCards, setNoOfCards] = React.useState(0);
 
-  const { currentAiPrompt, setCurrentAiPrompt, outlines, resetOutlines } =
-    useCreativeAIStore();
+  const {
+    currentAiPrompt,
+    setCurrentAiPrompt,
+    outlines,
+    resetOutlines,
+    addOutline,
+  } = useCreativeAIStore();
 
   const handleBack = () => {
     onBack();
@@ -67,6 +73,10 @@ const CreateAI = ({ onBack }: Props) => {
     setCurrentAiPrompt("");
     resetOutlines();
   };
+
+  useEffect(() => {
+    resetCards(); // Sayfa yüklendiğinde varsayılan olarak oluşturma sayfasını gösterir
+  }, []);
 
   // WIP: const generateOutlines = () => {}
 
@@ -166,11 +176,14 @@ const CreateAI = ({ onBack }: Props) => {
         editText={editText}
         onEditChange={onEditChange}
         onCardSelect={onCardSelect}
-        onCardDoubleClick={onCardDoubleClick}
         setEditText={setEditText}
         setEditingCard={setEditingCard}
         setSelectedCard={setSelectedCard}
         addMultipleOutlines={addMultipleOutlines}
+        onCardDoubleClick={(id: string, title: string) => {
+          setEditingCard(id);
+          setEditText(title);
+        }}
       />
     </motion.div>
   );

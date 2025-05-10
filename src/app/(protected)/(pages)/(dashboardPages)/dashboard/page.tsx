@@ -11,10 +11,10 @@ const DashboardPage = async () => {
       <div className="flex flex-col-reverse items-start w-full gap-6 sm:flex-row sm:justify-between sm:items-center">
         <div className="flex flex-col items-start">
           <h1 className="text-2xl front-semibold dark:text-primary backdrop-blur-lg">
-            Projects
+            Projeler
           </h1>
           <p className="text-base font-normal dark:text-secondary">
-            All of your work in one place
+            Bütün projeleriniz tek bir yerde
           </p>
         </div>
       </div>

@@ -2,10 +2,10 @@
 import usePromptStore from "@/store/usePromptStore";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 import CreatePage from "./CreatePage/CreatePage";
-import CreativeAI from "./GenerateAI/CreativeAI";
 import CreateAI from "./GenerateAI/CreativeAI";
+import CreateScratch from "./CreateScratch/CreateScratch";
 
 type Props = {
   handleBack?: () => void; // handleBack'i opsiyonel yaptık
@@ -37,11 +37,15 @@ const RenderPage: React.FC<Props> = (props) => {
       case "creative-ai":
         return <CreateAI onBack={handleBack} />;
       case "create-scratch":
-        return <div>Create Scratch Page</div>;
+        return <CreateScratch onBack={handleBack} />;
       default:
         return <div>Default Page</div>;
     }
   }, [page]);
+
+  useEffect(() => {
+    setPage("create"); // Sayfa yüklendiğinde varsayılan olarak oluşturma sayfasını gösterir
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
