@@ -35,9 +35,7 @@ const CardList = ({
   setSelectedCard,
   addOutline,
 }: Props) => {
-  const [draggedItem, setDraggedItem] = React.useState<OutlineCard | null>(
-    null
-  );
+  const [draggedItem, setDraggedItem] = React.useState<OutlineCard | null>(null);
   const [dragOverIndex, setDragOverIndex] = React.useState<number | null>(null);
   const dragOffsetY = useRef<number>(0);
 
@@ -55,11 +53,28 @@ const CardList = ({
     }
   };
 
+  const onAddCard = (index?: number) => {
+    const newCard: OutlineCard = {
+      id: Math.random().toString(36).substr(2, 9),
+      title: editText || "Yeni Bölüm",
+      order: (index !== undefined ? index + 1 : outlines.length) + 1,
+    };
+    const updatedCards =
+      index !== undefined
+        ? [
+            ...outlines.slice(0, index + 1),
+            newCard,
+            ...outlines.slice(index + 1).map((card) => ({ ...card, order: card.order + 1 })),
+          ]
+        : [...outlines, newCard];
+
+    addMultipleOutlines(updatedCards);
+    setEditText("");
+  };
+
   const onCardDelete = (id: string) => {
     addMultipleOutlines(
-      outlines
-        .filter((card) => card.id !== id)
-        .map((card, index) => ({ ...card, order: index + 1 }))
+      outlines.filter((card) => card.id !== id).map((card, index) => ({ ...card, order: index + 1 }))
     );
   };
 
@@ -88,70 +103,57 @@ const CardList = ({
     e.preventDefault();
     if (!draggedItem || dragOverIndex === null) return;
     const updatedCards = [...outlines];
-    const draggedIndex = updatedCards.findIndex(
-      (card) => card.id === draggedItem.id
-    );
+    const draggedIndex = updatedCards.findIndex((card) => card.id === draggedItem.id);
 
     if (draggedIndex === -1 || draggedIndex === dragOverIndex) return; // Item not found in the list
     const [removedCard] = updatedCards.splice(draggedIndex, 1);
-    updatedCards.splice(
-      dragOverIndex > draggedIndex ? dragOverIndex - 1 : dragOverIndex,
-      0,
-      removedCard
-    );
-    addMultipleOutlines(
-      updatedCards.map((card, index) => ({ ...card, order: index + 1 }))
-    );
+    updatedCards.splice(dragOverIndex > draggedIndex ? dragOverIndex - 1 : dragOverIndex, 0, removedCard);
+    addMultipleOutlines(updatedCards.map((card, index) => ({ ...card, order: index + 1 })));
 
     setDraggedItem(null);
     setDragOverIndex(null);
+  };
 
-    const onCardUpdate = (id: string, newTitle: string) => {
-      addMultipleOutlines(
-        outlines.map((card) =>
-          card.id === id ? { ...card, title: newTitle } : card
-        )
-      );
-      setEditingCard(null);
-      setSelectedCard(null);
-      setEditText("");
-    };
+  const onCardUpdate = (id: string, newTitle: string) => {
+    addMultipleOutlines(outlines.map((card) => (card.id === id ? { ...card, title: newTitle } : card)));
+    setEditingCard(null);
+    setSelectedCard(null);
+    setEditText("");
+  };
 
-    const onDragEnd = () => {
-      setDraggedItem(null);
-      setDragOverIndex(null);
-    };
+  const onDragEnd = () => {
+    setDraggedItem(null);
+    setDragOverIndex(null);
+  };
 
-    const getDragOverStyles = (cardIndex: number) => {
-      if (dragOverIndex === null || draggedItem === null) return {};
+  const getDragOverStyles = (cardIndex: number) => {
+    if (dragOverIndex === null || draggedItem === null) return {};
 
-      if (cardIndex === dragOverIndex) {
-        return {
-          borderTop: "2px solid #000",
-          marginTop: "0.5rem",
-          transition: "margin 0.2s cubic-bezier(0.25, 0.1, 0.25, 1)",
-        };
-      } else if (cardIndex === dragOverIndex - 1) {
-        return {
-          borderBottom: "2px solid #000",
-          marginBottom: "0.5rem",
-          transition: "margin 0.2s cubic-bezier(0.25, 0.1, 0.25, 1)",
-        };
-      }
+    if (cardIndex === dragOverIndex) {
+      return {
+        borderTop: "2px solid #000",
+        marginTop: "0.5rem",
+        transition: "margin 0.2s cubic-bezier(0.25, 0.1, 0.25, 1)",
+      };
+    } else if (cardIndex === dragOverIndex - 1) {
+      return {
+        borderBottom: "2px solid #000",
+        marginBottom: "0.5rem",
+        transition: "margin 0.2s cubic-bezier(0.25, 0.1, 0.25, 1)",
+      };
+    }
 
-      return {};
-    };
+    return {};
+  };
 
-    return (
+  return (
+    <>
       <motion.div
         className="space-y-2 -m-2"
         layout
         onDragOver={(e) => {
           e.preventDefault();
-          if (
-            outlines.length === 0 ||
-            e.clientY > e.currentTarget.getBoundingClientRect().bottom - 20
-          ) {
+          if (outlines.length === 0 || e.clientY > e.currentTarget.getBoundingClientRect().bottom - 20) {
             onDragOver(e, outlines.length);
           }
         }}
@@ -200,17 +202,13 @@ const CardList = ({
                   throw new Error("Function not implemented.");
                 }}
               />
-              <AddCardButton
-                onAddCard={function (): void {
-                  throw new Error("Function not implemented.");
-                }} //onAddCard={() => onAddCard(index)} />
-              />
+              <AddCardButton onAddCard={() => onAddCard(index)} />
             </React.Fragment>
           ))}
         </AnimatePresence>
       </motion.div>
-    );
-  };
+    </>
+  );
 };
 
 export default CardList;

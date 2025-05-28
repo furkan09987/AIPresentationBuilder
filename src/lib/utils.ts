@@ -5,24 +5,30 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const timeAgo = (timestamp: string) => {
-  const now = new Date();
-  const diffInSeconds = Math.floor(
-    now.getTime() - new Date(timestamp).getTime() / 1000
-  );
+export const timeAgo = (timestamp: string): string => {
+  if (!timestamp) {
+    return "Invalid date";
+  }
 
-  //yıl,ay,gün,saat,dakika,saniye ' yi tek tek saniye cinsinden hesaplıyoruz
+  const now = new Date();
+  const timestampDate = new Date(timestamp);
+
+  if (isNaN(timestampDate.getTime())) {
+    return "Invalid date";
+  }
+
+  const diffInSeconds = Math.floor((now.getTime() - timestampDate.getTime()) / 1000);
+
   const intervals = [
     { label: "year", value: 60 * 60 * 24 * 365 },
     { label: "month", value: 60 * 60 * 24 * 30 },
-    { label: "days", value: 60 * 60 * 24 },
-    { label: "hours", value: 60 * 60 },
-    { label: "mins", value: 60 },
-    { label: "sec", value: 1 },
+    { label: "day", value: 60 * 60 * 24 },
+    { label: "hour", value: 60 * 60 },
+    { label: "minute", value: 60 },
+    { label: "second", value: 1 },
   ];
 
-  for (let i = 0; i < intervals.length; i++) {
-    const interval = intervals[i];
+  for (const interval of intervals) {
     const count = Math.floor(diffInSeconds / interval.value);
     if (count > 0) {
       return `${count} ${interval.label}${count > 1 ? "s" : ""} ago`;

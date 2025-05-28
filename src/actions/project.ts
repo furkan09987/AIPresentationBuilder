@@ -5,6 +5,7 @@ import { onAuthenticateUser } from "./user";
 import { error } from "console";
 import { client } from "@/lib/prisma";
 import { data } from "@/lib/constants";
+import { OutlineCard } from "@/lib/types";
 
 export const getAllProjects = async () => {
   try {
@@ -116,5 +117,60 @@ export const deleteProject = async (projectId: string) => {
   } catch (error) {
     console.error("🔴 ERROR", error);
     return { status: 500, error: "Internal Server Error" };
+  }
+};
+
+export const createProject = async (title: string, outlines: OutlineCard[]) => {
+  try {
+    if (!title || !outlines || outlines.length === 0) {
+      return { status: 400, error: "Başlık ve taslaklar gereklidir" };
+    }
+
+    const allOutlines = outlines.map((outline) => outline.title);
+
+    const checkUser = await onAuthenticateUser();
+    if (checkUser.status !== 200 || !checkUser.user) {
+      return { status: 403, error: "Kullanıcı doğrulanamadı" };
+    }
+
+    const project = await client.project.create({
+      data: {
+        title,
+        outlines: allOutlines,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        userId: checkUser.user.id,
+      },
+    });
+
+    if (!project) {
+      return { status: 500, error: "Proje oluşturulamadı" };
+    }
+    return { status: 200, data: project };
+  } catch (error) {
+    console.error("🔴 ERROR", error);
+    return { status: 500, error: "Internal Server Error" };
+  }
+};
+
+export const getProjectById = async (projectId: string) => {
+  try {
+    const checkUser = await onAuthenticateUser();
+    if (checkUser.status !== 200 || !checkUser.user) {
+      return { status: 403, error: "Kullanıcı doğrulanamadı" };
+    }
+
+    const project = await client.project.findFirst({
+      where: { id: projectId },
+    });
+
+    if (!project) {
+      return { status: 404, error: "Proje bulunamadı" };
+    }
+
+    return { status: 200, data: project };
+  } catch (error) {
+    console.error("ERROR", error);
+    return { status: 500, error: "Internal server error" };
   }
 };

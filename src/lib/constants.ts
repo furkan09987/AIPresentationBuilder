@@ -376,20 +376,20 @@ export const CreatePageCard = [
   {
     title: "Bir şablon",
     highlightedText: "Seçin",
-    description: "Bir istek yazın ve kalanını bize bırakın",
+    description: "Bir istem yazın ve kalanını bize bırakın",
     type: "template",
   },
   {
     title: "Yaratıcı AI",
     highlightedText: "İle oluşturun",
-    description: "Bir istek yazın ve kalanını bize bırakın",
+    description: "Bir istem yazın ve kalanını bize bırakın",
     type: "creative-ai",
     highlight: true,
   },
   {
-    title: "Çizerek",
+    title: "Sıfırdan",
     highlightedText: "Başlayın",
-    description: "Bir istek yazın ve kalanını bize bırakın",
+    description: "Bir istem yazın ve kalanını bize bırakın",
     type: "create-scratch",
   },
 ];

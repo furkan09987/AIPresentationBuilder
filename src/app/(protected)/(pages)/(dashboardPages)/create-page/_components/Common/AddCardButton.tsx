@@ -16,7 +16,8 @@ const AddCardButton = ({ onAddCard }: Props) => {
       className="w-full relative overflow-hidden "
       initial={{ height: "0.5rem" }}
       animate={{
-        height: showGap ? "1rem" : "0.5rem",
+        height: showGap ? "2rem" : "0.5rem",
+        opacity: showGap ? "0.8" : "0",
         transition: { duration: 0.3, ease: "easeInOut" },
       }}
       onHoverStart={() => setShowGap(true)}
@@ -41,7 +42,7 @@ const AddCardButton = ({ onAddCard }: Props) => {
             >
               <Plus className="h-4 w-4 text-black" />
             </Button>
-            <div className="w-[40%] h[1px] bg-primary" />
+            <div className="w-[40%] h-[1px] bg-primary" />
           </motion.div>
         )}
       </AnimatePresence>

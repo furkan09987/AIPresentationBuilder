@@ -69,6 +69,7 @@ export interface Theme {
   accentColor: string;
   gradientBackground?: string;
   sidebarColor?: string;
+  navbarColor?: string;
   type: "light" | "dark";
 }
 
@@ -76,4 +77,11 @@ export interface OutlineCard {
   title: string;
   id: string;
   order: number;
+}
+
+export interface LayoutSlides {
+  slideName: string;
+  content: ContentItem;
+  className?: string;
+  type: string;
 }

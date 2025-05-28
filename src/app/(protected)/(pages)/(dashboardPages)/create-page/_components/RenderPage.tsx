@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 import CreatePage from "./CreatePage/CreatePage";
 import CreateAI from "./GenerateAI/CreativeAI";
 import CreateScratch from "./CreateScratch/CreateScratch";
+import ScratchPage from "./Scratch/ScratchPage";
 
 type Props = {
   handleBack?: () => void; // handleBack'i opsiyonel yaptık
@@ -37,7 +38,7 @@ const RenderPage: React.FC<Props> = (props) => {
       case "creative-ai":
         return <CreateAI onBack={handleBack} />;
       case "create-scratch":
-        return <CreateScratch onBack={handleBack} />;
+        return <ScratchPage onBack={handleBack} />;
       default:
         return <div>Default Page</div>;
     }

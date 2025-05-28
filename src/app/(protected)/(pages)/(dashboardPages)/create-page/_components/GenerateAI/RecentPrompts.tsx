@@ -30,16 +30,10 @@ const RecentPrompts = (props: Props) => {
 
   return (
     <motion.div variants={containerVariants} className="space-y-4 !mt-20">
-      <motion.h2
-        variants={itemVariants}
-        className="text-2xl font-semibold text-center"
-      >
+      <motion.h2 variants={itemVariants} className="text-2xl font-semibold text-center">
         Girilen Son İstemler
       </motion.h2>
-      <motion.div
-        variants={containerVariants}
-        className="space-y-2 w-full lg:max-w-[80%] mx-auto"
-      >
+      <motion.div variants={containerVariants} className="space-y-2 w-full lg:max-w-[80%] mx-auto">
         {prompts.map((prompt, i) => (
           <motion.div key={i} variants={itemVariants}>
             <Card className="p-4 flex items-center justify-between hover:bg-accent/50 transition-colors duration-300">
@@ -48,9 +42,7 @@ const RecentPrompts = (props: Props) => {
                   {prompt?.title}
                   This is the title
                 </h3>
-                <p className="font-semibold text-sm text-muted-foreground">
-                  {timeAgo(prompt?.createdAt)}
-                </p>
+                <p className="font-semibold text-sm text-muted-foreground">{timeAgo(prompt?.createdAt)}</p>
               </div>
               <div className="flex items-center gap-4">
                 <span className="text-sm text-vivid">Creative AI</span>

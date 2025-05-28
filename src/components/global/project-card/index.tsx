@@ -21,14 +21,7 @@ type Props = {
   slideData: JsonValue;
 };
 
-const ProjectCard = ({
-  createdAt,
-  projectId,
-  slideData,
-  title,
-  themeName,
-  isDelete,
-}: Props) => {
+const ProjectCard = ({ createdAt, projectId, slideData, title, themeName, isDelete }: Props) => {
   const [loading, setLoading] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const { setSlides } = useSlideStore();
@@ -101,7 +94,6 @@ const ProjectCard = ({
       });
     }
   };
-
   return (
     <motion.div
       className={`group w-full flex flex-col gap-y-3 rounded-xl p-3 transition-colors ${
@@ -113,21 +105,13 @@ const ProjectCard = ({
         className="relative aspect-[16/10] overflow-hidden rounded-lg cursor-pointer"
         onClick={handleNavigation}
       >
-        <ThumbnailPreview
-          theme={theme}
-          slide={JSON.parse(JSON.stringify(slideData))?.[0]}
-        />
+        <ThumbnailPreview theme={theme} slide={JSON.parse(JSON.stringify(slideData))?.[0]} />
       </div>
       <div className="w-full">
         <div className="space-y-1">
-          <h3 className="font-semibold text-base text-primary line-clamp-1">
-            {title} Bu görmek istediğim başlik
-          </h3>
+          <h3 className="font-semibold text-base text-primary line-clamp-1">{title}</h3>
           <div className="flex w-full justify-between items-center gap-2">
-            <p
-              className="text-sm text-muted-foreground"
-              suppressHydrationWarning
-            >
+            <p className="text-sm text-muted-foreground" suppressHydrationWarning>
               {timeAgo(createdAt)}
             </p>
             {isDelete ? (
@@ -139,16 +123,14 @@ const ProjectCard = ({
                 onClick={handleRecover}
                 handleOpen={() => setOpen(!open)}
               >
-                <>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="bg-background-80 dark:hover:bg-background-90"
-                    disabled={loading}
-                  >
-                    Recover
-                  </Button>
-                </>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="bg-background-80 dark:hover:bg-background-90"
+                  disabled={loading}
+                >
+                  Recover
+                </Button>
               </AlertDialogBox>
             ) : (
               <AlertDialogBox
@@ -159,16 +141,14 @@ const ProjectCard = ({
                 open={open}
                 handleOpen={() => setOpen(!open)}
               >
-                <>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="bg-background-80 dark:hover:bg-background-90"
-                    disabled={loading}
-                  >
-                    Sil
-                  </Button>
-                </>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="bg-background-80 dark:hover:bg-background-90"
+                  disabled={loading}
+                >
+                  Sil
+                </Button>
               </AlertDialogBox>
             )}
           </div>
