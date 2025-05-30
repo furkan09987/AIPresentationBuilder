@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import CreatePageSkeleton from "./_components/CreatePage/CreatePageSkeleton";
 import RenderPage from "./_components/RenderPage";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
 import { onAuthenticateUser } from "@/actions/user";
 
 type Props = {};

@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar";
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 import { SignedIn, useUser } from "@clerk/nextjs";
 import { User } from "@prisma/client";
 import { useRouter } from "next/navigation";
@@ -31,9 +27,7 @@ const NavFooter = ({ prismaUser }: { prismaUser: User }) => {
                 <p className="text-base font-bold">
                   Get <span className="text-vivid">Creative AI</span>
                 </p>
-                <span className="text-sm dark:text-secondary">
-                  Unlock all features including AI and more
-                </span>
+                <span className="text-sm dark:text-secondary">Unlock all features including AI and more</span>
               </div>
               <div className="w-full bg-vivid-gradient p-[1px] rounded-full">
                 <Button
@@ -56,9 +50,7 @@ const NavFooter = ({ prismaUser }: { prismaUser: User }) => {
               <UserButton signInUrl="/sign-in" />
               <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
                 <span className="truncate font-semibold">{user?.fullName}</span>
-                <span className="truncate text-secondary">
-                  {user?.emailAddresses[0]?.emailAddress}
-                </span>
+                <span className="truncate text-secondary">{user?.emailAddresses[0]?.emailAddress}</span>
               </div>
             </SidebarMenuButton>
           </SignedIn>

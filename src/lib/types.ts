@@ -1,4 +1,6 @@
 import { ContextMenuItemIndicatorProps } from "@radix-ui/react-context-menu";
+import { LayoutGroup } from "framer-motion";
+//import { layouts } from "./constants";
 
 export interface Slide {
   id: string;
@@ -44,7 +46,7 @@ export interface ContentItem {
   id: string;
   type: ContentType;
   name: string;
-  content: ContentItem[] | string | string[] | string[][];
+  content: ContentItem | ContentItem[] | string | string[] | string[][];
   initialRows?: number;
   initialColumns?: number;
   restrictToDrop?: boolean;
@@ -84,4 +86,30 @@ export interface LayoutSlides {
   content: ContentItem;
   className?: string;
   type: string;
+}
+
+export interface Layout {
+  name: string;
+  icon: React.FC;
+  type: string;
+  component: LayoutSlides;
+  layoutType: string;
+}
+
+export interface LayoutGroup {
+  name: string;
+  layouts: Layout[];
+}
+
+interface Component {
+  name: string;
+  icon: string;
+  type: string;
+  component: ContentItem;
+  componentType: string;
+}
+
+export interface ComponentGroup {
+  name: string;
+  components: Component[];
 }

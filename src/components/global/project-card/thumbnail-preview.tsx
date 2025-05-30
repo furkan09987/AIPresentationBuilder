@@ -2,6 +2,7 @@ import { Slide, Theme } from "@/lib/types";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Image } from "lucide-react";
+import { MasterRecursiveComponent } from "@/app/(protected)/presentation/[presentationId]/_components/editor/MasterRecursiveComponent";
 
 type Props = {
   slide: Slide;
@@ -24,7 +25,12 @@ const ThumbnailPreview = ({ slide, theme }: Props) => {
     >
       {slide ? (
         <div className="scale-[0.5] origin-top-left w-[200%] h-[200%] overflow-hidden">
-          THIS is the slide
+          <MasterRecursiveComponent
+            slideId={slide.id}
+            content={slide.content}
+            onContentChange={() => {}}
+            isPreview={true}
+          />
         </div>
       ) : (
         <div className="w-full h-full bg-gray-400 flex justify-center items-center">

@@ -21,14 +21,10 @@ const Layout = async ({ children }: Props) => {
     redirect("/sign-in");
   }
 
-  // Removed SidebarProvider wrapper
   return (
     <>
       <SidebarProvider>
-        <AppSidebar
-          user={checkUser.user}
-          recentProjects={recentProjects.data || []}
-        />
+        <AppSidebar user={checkUser.user} recentProjects={recentProjects.data || []} />
         <SidebarInset className="px-8">
           <UpperInfoBar user={checkUser.user} />
           <div className="p-4">{children}</div>

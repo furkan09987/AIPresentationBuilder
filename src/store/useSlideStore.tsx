@@ -71,7 +71,7 @@ export const useSlideStore = create<SlideState>()(
         set((state) => {
           const updateContentRecursively = (item: ContentItem): ContentItem => {
             if (item.id === contentId) {
-              return { ...item, content: newContent }; // burada küçük bir bug var
+              return { ...item, content: newContent }; // burada küçük bir bug var // BEYNİM YETMİYOR YARIN BAKALIM
             }
             return item;
           };
