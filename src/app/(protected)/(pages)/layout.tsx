@@ -1,6 +1,4 @@
-"use server";
 import { redirect } from "next/navigation";
-// Removed SidebarProvider import
 import AppSidebar from "@/components/global/app-sidebar";
 import { type UserWithProjects } from "@/types";
 import React from "react";

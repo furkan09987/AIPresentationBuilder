@@ -520,6 +520,8 @@ professional designs.
     } */
     if (dalleResponse.data) {
       console.log("✔ Resim başarıyla oluşturuldu:", dalleResponse.data[0]?.url);
+
+      // TODO: UploadCare bağlantısı yapılacak.
       return dalleResponse.data[0]?.url || "https://via.placeholder.com/1024";
     } else {
       throw new Error("Resim oluşturulamadı. dalleResponse data verisi içermiyor.");

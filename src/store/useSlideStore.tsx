@@ -69,16 +69,32 @@ export const useSlideStore = create<SlideState>()(
 
       updateContentItem: (slideId, contentId, newContent) => {
         set((state) => {
-          const updateContentRecursively = (item: ContentItem): ContentItem => {
-            if (item.id === contentId) {
-              return { ...item, content: newContent }; // burada küçük bir bug var // BEYNİM YETMİYOR YARIN BAKALIM
-            }
-            return item;
+          const updateContentRecursively = (item: any): ContentItem => {
+            return item.map((itemContent: any) => {
+              if (itemContent.id === contentId) {
+                return {
+                  ...itemContent,
+                  content: newContent,
+                };
+              }
+
+              if (Array.isArray(itemContent.content)) {
+                return {
+                  ...itemContent,
+                  content: updateContentRecursively(itemContent.content),
+                };
+              } else {
+                return itemContent;
+              }
+            });
           };
           return {
             slides: state.slides.map((slide) => {
               return slide.id === slideId
-                ? { ...slide, content: updateContentRecursively(slide.content) }
+                ? {
+                    ...slide,
+                    content: { ...slide.content, content: updateContentRecursively(slide.content.content) },
+                  }
                 : slide;
             }),
           };

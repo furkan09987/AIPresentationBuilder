@@ -3,7 +3,7 @@ import { Theme } from "@/lib/types";
 import { AnimationControls, motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
-import premium from "@/assets/premium.png"; // Import logo image
+import kanyon from "@/assets/kanyon.jpg"; // Import logo image
 
 type Props = {
   title: string;
@@ -67,7 +67,7 @@ const ThemeCard = ({ content, controls, description, theme, title, variant }: Pr
       initial="hidden"
       animate={controls}
       variants={variants[variant]}
-      className="absolute w-full max-w-3xl"
+      className="absolute w-full max-w-2xl"
       style={{ zIndex: variant === "main" ? 10 : 0 }}
     >
       <Card
@@ -91,7 +91,7 @@ const ThemeCard = ({ content, controls, description, theme, title, variant }: Pr
           </CardContent>
           <div className="relative w-full md:w-1/2 h-80 md:h-auto overflow-hidden rounded-r-lg">
             <Image
-              src={premium}
+              src={kanyon}
               alt="Theme preview image"
               layout="fill"
               objectFit="cover"

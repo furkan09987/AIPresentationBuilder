@@ -38,15 +38,11 @@ const RecentOpen = ({ recentProjects }: RecentOpenProps) => {
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Recently Opened</SidebarGroupLabel>
+      <SidebarGroupLabel>Son Açılanlar</SidebarGroupLabel>
       <SidebarMenu>
         {recentProjects.map((item) => (
           <SidebarMenuItem key={item.id}>
-            <SidebarMenuButton
-              asChild
-              tooltip={item.title}
-              className="hover:bg-primary-80"
-            >
+            <SidebarMenuButton asChild tooltip={item.title} className="hover:bg-primary-80">
               <Button
                 variant="link"
                 onClick={() => handleClick(item.id, item.slides)}
@@ -73,10 +69,7 @@ const AppSidebar = ({ recentProjects, user, ...props }: AppSidebarProps) => {
   return (
     <Sidebar variant="inset" collapsible="icon" className="" {...props}>
       <SidebarHeader className="pt-6 px-2 pb-0">
-        <SidebarMenuButton
-          size="lg"
-          className="data-[state=open]:text-sidebar-accent-foreground"
-        >
+        <SidebarMenuButton size="lg" className="data-[state=open]:text-sidebar-accent-foreground">
           <div className="flex aspect-square size-8 items-center justify-center rounded-lg">
             <Image src={logo} alt="Logo" width={32} height={32} />
           </div>

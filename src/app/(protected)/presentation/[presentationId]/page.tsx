@@ -5,7 +5,6 @@ import { useSlideStore } from "@/store/useSlideStore";
 import { set } from "date-fns";
 import { Loader2 } from "lucide-react";
 import { useTheme } from "next-themes";
-import { loadComponents } from "next/dist/server/load-components";
 import { redirect, useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";

@@ -183,12 +183,12 @@ const CreateAI = ({ onBack }: Props) => {
               <SelectContent className="w-fit">
                 {outlines.length === 0 ? (
                   <SelectItem value="0" className="font-semibold">
-                    No cards
+                    Kart Yok
                   </SelectItem>
                 ) : (
                   Array.from({ length: outlines.length }, (_, idx) => idx + 1).map((num) => (
                     <SelectItem key={num} value={num.toString()} className="font-semibold">
-                      {num} {num === 1 ? "Card" : "Cards"}
+                      {num} Kart
                     </SelectItem>
                   ))
                 )}

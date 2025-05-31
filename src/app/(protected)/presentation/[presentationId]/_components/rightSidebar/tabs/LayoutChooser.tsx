@@ -1,6 +1,6 @@
 "use client";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { layouts } from "@/lib/constants";
+/* import { layouts } from "@/lib/constants"; */
 import { Layout } from "@/lib/types";
 import { useSlideStore } from "@/store/useSlideStore";
 import React from "react";
@@ -41,7 +41,7 @@ const LayoutChooser = () => {
       }}
     >
       <div className="p-4">
-        {layouts.map((group) => (
+        {/* {layouts.map((group) => (
           <div key={group.name} className="mb-b">
             <h3 className="text-sm font-medium my-4">{group.name}</h3>
             <div className="grid grid-cols-3 gap-2">
@@ -50,7 +50,7 @@ const LayoutChooser = () => {
               ))}
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </ScrollArea>
   );

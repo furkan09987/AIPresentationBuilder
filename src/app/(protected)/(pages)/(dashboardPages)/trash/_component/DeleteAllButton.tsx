@@ -4,7 +4,7 @@ import AlertDialogBox from "@/components/global/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Project } from "@prisma/client";
 import { Trash } from "lucide-react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
@@ -46,7 +46,7 @@ const DeleteAllButton = ({ Projects }: Props) => {
 
   return (
     <AlertDialogBox
-      description="This action cannot be undone. This will permanently delete all your projects and remove your data from our servers."
+      description="Bu işlem geri alınamaz. Projeleriniz ve verileriniz sunucularımızdan kalıcı olarak silinecektir."
       className="bg-red-500 text-white
       dark:bg-red-600 hover:bg-red-600
       dark:hover:bg-red-700"

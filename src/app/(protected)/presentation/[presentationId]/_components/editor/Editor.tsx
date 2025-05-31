@@ -173,7 +173,6 @@ const Editor = ({ isEditable }: Props) => {
   const { getOrderedSlides, currentSlide, removeSlide, addSlideAtIndex, reorderSlides, slides, project } =
     useSlideStore();
   const [loading, setLoading] = useState(true);
-  const [orderedSlides, setOrderedSlides] = useState<Slide[]>([]);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const autosaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -183,12 +182,7 @@ const Editor = ({ isEditable }: Props) => {
     }
   };
 
-  useEffect(() => {
-    const ordered = getOrderedSlides();
-    console.log(ordered);
-    setOrderedSlides(ordered);
-    setLoading(false);
-  }, []);
+  const orderedSlides = getOrderedSlides();
 
   const handleDrop = (
     item: {
@@ -270,7 +264,7 @@ const Editor = ({ isEditable }: Props) => {
             {isEditable && <DropZone index={0} onDrop={handleDrop} isEditable={isEditable} />}
             {orderedSlides.map((slide, index) => (
               <React.Fragment key={slide.id || index}>
-                <pre>{JSON.stringify(slide, null, 2)}</pre>
+                {/* <pre>{JSON.stringify(slide, null, 2)}</pre> */}
                 <DraggableSlide
                   slide={slide}
                   index={index}

@@ -18,7 +18,7 @@ const Navbar = ({ presentationId }: Props) => {
     navigator.clipboard.writeText(`${window.location.origin}/share/${presentationId}`);
 
     toast.success("Bağlantı Kopyalandı", {
-      description: "Bağlantı panoyakopyalandı",
+      description: "Bağlantı panoya kopyalandı",
     });
   };
 
@@ -64,7 +64,7 @@ const Navbar = ({ presentationId }: Props) => {
           onClick={() => setIsPresentationMode(true)}
         >
           <Play className="w-4 h-4" />
-          <span className="hidden sm:inline">Present</span>
+          <span className="hidden sm:inline">Oynat</span>
         </Button>
       </div>
 

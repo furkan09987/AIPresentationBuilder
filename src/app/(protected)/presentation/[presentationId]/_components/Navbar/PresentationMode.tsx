@@ -1,7 +1,7 @@
 import { useSlideStore } from "@/store/useSlideStore";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { MasterRecursiveComponent } from "../editor/MasterRecursiveComponent";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -27,22 +27,21 @@ const PresentationMode = ({ onClose }: Props) => {
   };
 
   useEffect(() => {
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'ArrowRight' || e.key === ' ') {
-      if (currentSlideIndex === slides.length - 1) {
-        onClose()
-      } else {
-        setCurrentSlideIndex((prev) => Math.min(prev + 1, slides.
-          length - 1))
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight" || e.key === " ") {
+        if (currentSlideIndex === slides.length - 1) {
+          onClose();
+        } else {
+          setCurrentSlideIndex((prev) => Math.min(prev + 1, slides.length - 1));
+        }
+      } else if (e.key === "ArrowLeft") {
+        setCurrentSlideIndex((prev) => Math.max(prev - 1, 0));
+      } else if (e.key === "Escape") {
+        onClose();
       }
-    } else if (e.key === 'ArrowLeft') {
-      setCurrentSlideIndex((prev) => Math.max(prev - 1, 0))
-    } else if (e.key === 'Escape') {
-      onClose()
-    }
-  }
-
-  window.addEventListener('keydown', handleKeyDown)
+    };
+    window.addEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <div
@@ -111,6 +110,6 @@ const PresentationMode = ({ onClose }: Props) => {
       </div>
     </div>
   );
-  }
+};
 
 export default PresentationMode;

@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { useSlideStore } from "@/store/useSlideStore";
 import React from "react";
 import { MasterRecursiveComponent } from "../../editor/MasterRecursiveComponent";
+import { Slide } from "@/lib/types";
 
 type Props = {
   slide: Slide;

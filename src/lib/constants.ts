@@ -11,7 +11,34 @@ import {
   Table,
   Title,
 } from "./slideComponents";
-import { BlankCardIcon, ImageAndTextIcon } from "./IconsComponent";
+import {
+  BlankCardIcon,
+  FourColumnsIcon,
+  FourImageColumnsIcon,
+  ImageAndTextIcon,
+  TextAndImageIcon,
+  ThreeColumnsIcon,
+  ThreeColumnsWithHeadingsIcon,
+  ThreeImageColumnsIcon,
+  TwoColumnsIcon,
+  TwoColumnsWithHeadingsIcon,
+  TwoImageColumnsIcon,
+} from "./IconsComponent";
+import {
+  AccentLeft,
+  AccentRight,
+  BlankCard,
+  FourColumns,
+  FourImageColumns,
+  ImageAndText,
+  TextAndImage,
+  ThreeColumns,
+  ThreeColumnsWithHeadings,
+  ThreeImageColumns,
+  TwoColumns,
+  TwoColumnsWithHeadings,
+  TwoImageColumns,
+} from "./slideLayouts";
 
 interface Theme {
   name: string;

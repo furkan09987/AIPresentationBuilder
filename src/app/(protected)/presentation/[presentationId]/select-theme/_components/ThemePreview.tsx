@@ -49,15 +49,6 @@ const ThemePreview = (props: Props) => {
           <li>Önizleme yapın ve yayınlayın</li>
         </ol>
       </div>
-      <Button
-        className="w-full h-12 text-lg font-medium "
-        style={{
-          backgroundColor: selectedTheme.accentColor,
-          color: selectedTheme.fontColor,
-        }}
-      >
-        Başlaaaaaaaaaaaaaa
-      </Button>
     </div>
   );
   const mainCardContent = (
@@ -69,10 +60,10 @@ const ThemePreview = (props: Props) => {
           </p>
         </div>
         <div className="rounded-xl p-6" style={{ backgroundColor: selectedTheme.accentColor + "10" }}>
-          <p style={{ color: selectedTheme.accentColor }}>Bunları /smart yazarak elde edebilirsiniz.</p>
+          <p style={{ color: selectedTheme.accentColor }}>Burada içeriği görebilirsiniz.</p>
         </div>
       </div>
-      <div className="flex flex-wrap gap-4">
+      {/* <div className="flex flex-wrap gap-4">
         <Button
           className="h-12 px-6 text-lg font-medium"
           style={{
@@ -92,7 +83,7 @@ const ThemePreview = (props: Props) => {
         >
           İkincil buton
         </Button>
-      </div>
+      </div> */}
     </div>
   );
   const rightCardContent = (
@@ -108,16 +99,6 @@ const ThemePreview = (props: Props) => {
           <li>Erişilebilirlik optimize edildi</li>
         </ul>
       </div>
-      <Button
-        variant="outline"
-        className="w-full h-12 text-lg font-medium"
-        style={{
-          borderColor: selectedTheme.accentColor,
-          color: selectedTheme.accentColor,
-        }}
-      >
-        Özellikleri Keşfet
-      </Button>
     </div>
   );
 
@@ -161,7 +142,7 @@ const ThemePreview = (props: Props) => {
             />
             <ThemeCard
               title="Önizleme"
-              description="Bu ana tema önizleme kartıdır"
+              description="Slaytlarınız böyle görünecek"
               content={mainCardContent}
               variant="main"
               theme={selectedTheme}

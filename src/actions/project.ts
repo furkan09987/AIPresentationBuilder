@@ -7,6 +7,7 @@ import { client } from "@/lib/prisma";
 import { data } from "@/lib/constants";
 import { OutlineCard } from "@/lib/types";
 import { JsonValue } from "@prisma/client/runtime/library";
+import { Project } from "@prisma/client";
 
 export const getAllProjects = async () => {
   try {
@@ -231,7 +232,6 @@ export const deleteAllProjects = async (projectIds: string[]) => {
     if (!Array.isArray(projectIds) || projectIds.length === 0) {
       return { status: 400, error: "Hiçbir proje id' si yok" };
     }
-
     const checkUser = await onAuthenticateUser();
     if (checkUser.status !== 200 || !checkUser.user) {
       return { status: 403, error: "Kullanıcı kimliği doğrulanamadı" };
@@ -240,7 +240,12 @@ export const deleteAllProjects = async (projectIds: string[]) => {
     const userId = checkUser.user.id;
 
     const projectsToDelete = await client.project.findMany({
-      where: {},
+      where: {
+        id: {
+          in: projectIds,
+        },
+        userId: userId,
+      },
     });
 
     if (projectsToDelete.length === 0) {
@@ -250,18 +255,18 @@ export const deleteAllProjects = async (projectIds: string[]) => {
     const deletedProjects = await client.project.deleteMany({
       where: {
         id: {
-          in: projectsToDelete.map((project) => project.id),
+          in: projectsToDelete.map((p: Project) => p.id),
         },
       },
     });
 
     return {
       status: 200,
-      message: `${deletedProjects.count} projeler başarıyla silindi.`,
+      message: `${deletedProjects.count} projects successfully deleted.`,
     };
   } catch (error) {
-    console.error("🔴 ERROR", error);
-    return { status: 500, error: "Internal servererror." };
+    console.log("Error: ", error);
+    return { status: 500, error: "Internal Server Error" };
   }
 };
 

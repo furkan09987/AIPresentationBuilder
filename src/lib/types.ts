@@ -82,6 +82,7 @@ export interface OutlineCard {
 }
 
 export interface LayoutSlides {
+  //**** */
   slideName: string;
   content: ContentItem;
   className?: string;

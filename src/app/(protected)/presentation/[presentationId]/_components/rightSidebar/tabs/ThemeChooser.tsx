@@ -38,50 +38,49 @@ const ThemeChooser = () => {
         description: "Tema güncellenemedi",
       });
     }
-
-    return (
-      <ScrollArea className="h-[400px]">
-        <div
-          className="mb-4 text-center
-      font-bold"
-        >
-          Temalar
-        </div>
-        <div className="flex flex-col space-y-4">
-          {themes.map((theme) => (
-            <Button
-              onClick={() => handleThemeChange(theme)}
-              key={theme.name}
-              variant={currentTheme.name === theme.name ? "default" : "outline"}
-              className="flex flex-col items-center
-            justify-start px-4 w-full h-auto"
-              style={{
-                fontFamily: theme.fontFamily,
-                color: theme.fontColor,
-                background: theme.gradientBackground || theme.backgroundColor,
-              }}
-            >
-              <div
-                className="w-full flex
-  items-center justify-between"
-              >
-                <span className="text-xl font-bold">{theme.name}</span>
-                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: theme.accentColor }} />
-              </div>
-              <div className="space-y-1 w-full">
-                <div className="text-2xl font-bold" style={{ color: theme.accentColor }}>
-                  Başlık
-                </div>
-                <div className="text-base opacity-80">
-                  Body & <span style={{ color: theme.accentColor }}>link</span>
-                </div>
-              </div>
-            </Button>
-          ))}
-        </div>
-      </ScrollArea>
-    );
   };
+  return (
+    <ScrollArea className="h-[400px]">
+      <div
+        className="mb-4 text-center
+      font-bold"
+      >
+        Temalar
+      </div>
+      <div className="flex flex-col space-y-4">
+        {themes.map((theme) => (
+          <Button
+            onClick={() => handleThemeChange(theme)}
+            key={theme.name}
+            variant={currentTheme.name === theme.name ? "default" : "outline"}
+            className="flex flex-col items-center
+            justify-start px-4 w-full h-auto"
+            style={{
+              fontFamily: theme.fontFamily,
+              color: theme.fontColor,
+              background: theme.gradientBackground || theme.backgroundColor,
+            }}
+          >
+            <div
+              className="w-full flex
+  items-center justify-between"
+            >
+              <span className="text-xl font-bold">{theme.name}</span>
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: theme.accentColor }} />
+            </div>
+            <div className="space-y-1 w-full">
+              <div className="text-2xl font-bold" style={{ color: theme.accentColor }}>
+                Başlık
+              </div>
+              <div className="text-base opacity-80">
+                Body & <span style={{ color: theme.accentColor }}>link</span>
+              </div>
+            </div>
+          </Button>
+        ))}
+      </div>
+    </ScrollArea>
+  );
 };
 
 export default ThemeChooser;

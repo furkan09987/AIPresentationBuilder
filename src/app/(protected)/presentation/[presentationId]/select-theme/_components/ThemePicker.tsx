@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Theme } from "@/lib/types";
 import { useSlideStore } from "@/store/useSlideStore";
 import { Loader2, Router, Wand2 } from "lucide-react";
-import { useParams } from "next/navigation";
-import router, { useRouter } from "next/router";
+import { useParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -17,7 +16,7 @@ type Props = {
 };
 
 const ThemePicker = ({ onThemeSelect, selectedTheme, themes }: Props) => {
-  //const router = useRouter();
+  const router = useRouter();
   const params = useParams();
   const { project, setSlides, currentTheme } = useSlideStore();
   const [loading, setLoading] = useState(false);
@@ -49,6 +48,7 @@ const ThemePicker = ({ onThemeSelect, selectedTheme, themes }: Props) => {
       router.push(`/presentation/${project?.id}`);
       setSlides(res.data);
     } catch (error) {
+      console.log(error);
       toast.error("Error", {
         description: "Layoutlar oluşturulamadı",
       });
@@ -83,7 +83,7 @@ const ThemePicker = ({ onThemeSelect, selectedTheme, themes }: Props) => {
           onClick={handleGenerateLayouts}
         >
           {loading ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Wand2 className="mr-2 h-5 w-5" />}
-          {loading ? <p className="animate-pulse">Oluşturuluyor..</p> : "Tema Oluştur"}
+          {loading ? <p className="animate-pulse">Oluşturuluyor..</p> : "Proje Oluştur"}
         </Button>
       </div>
       <ScrollArea className="flex-grow px-8 pb-8">
