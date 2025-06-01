@@ -20,11 +20,37 @@ import { data } from "@/lib/constants";
 import NavFooter from "./nav-footer";
 import Image from "next/image";
 
-import logo from "@/assets/logo.png"; // Import logo image
+import logo from "@/assets/logo.png";
 
-// RecentOpen bileşeni: recentProjects prop'unu alacak şekilde güncellendi
 type RecentOpenProps = {
   recentProjects: Project[];
+};
+
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+  recentProjects: Project[];
+  user: User;
+}
+
+const AppSidebar = ({ recentProjects, user, ...props }: AppSidebarProps) => {
+  return (
+    <Sidebar variant="inset" collapsible="icon" className="" {...props}>
+      <SidebarHeader className="pt-6 px-2 pb-0">
+        <SidebarMenuButton size="lg" className="data-[state=open]:text-sidebar-accent-foreground">
+          <div className="flex aspect-square size-8 items-center justify-center rounded-lg">
+            <Image src={logo} alt="Logo" width={32} height={32} />
+          </div>
+          <span className="truncate text-primary text-2xl ">Sunum Yap</span>
+        </SidebarMenuButton>
+      </SidebarHeader>
+      <SidebarContent className="px-2 mt-10 gap-y-6">
+        <NavMain items={data.navMain} />
+        <RecentOpen recentProjects={recentProjects} /> {/* Hata çözüldü */}
+      </SidebarContent>
+      <SidebarFooter>
+        <NavFooter prismaUser={user} />
+      </SidebarFooter>
+    </Sidebar>
+  );
 };
 
 const RecentOpen = ({ recentProjects }: RecentOpenProps) => {
@@ -55,35 +81,6 @@ const RecentOpen = ({ recentProjects }: RecentOpenProps) => {
         ))}
       </SidebarMenu>
     </SidebarGroup>
-  );
-};
-
-// AppSidebar bileşeni
-interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
-  recentProjects: Project[];
-  user: User;
-}
-
-const AppSidebar = ({ recentProjects, user, ...props }: AppSidebarProps) => {
-  // Removed SidebarProvider wrapper
-  return (
-    <Sidebar variant="inset" collapsible="icon" className="" {...props}>
-      <SidebarHeader className="pt-6 px-2 pb-0">
-        <SidebarMenuButton size="lg" className="data-[state=open]:text-sidebar-accent-foreground">
-          <div className="flex aspect-square size-8 items-center justify-center rounded-lg">
-            <Image src={logo} alt="Logo" width={32} height={32} />
-          </div>
-          <span className="truncate text-primary text-2xl ">Sunum Yap</span>
-        </SidebarMenuButton>
-      </SidebarHeader>
-      <SidebarContent className="px-2 mt-10 gap-y-6">
-        <NavMain items={data.navMain} />
-        <RecentOpen recentProjects={recentProjects} /> {/* Hata çözüldü */}
-      </SidebarContent>
-      <SidebarFooter>
-        <NavFooter prismaUser={user} />
-      </SidebarFooter>
-    </Sidebar>
   );
 };
 

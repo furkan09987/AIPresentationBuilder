@@ -40,7 +40,13 @@ const ThemeChooser = () => {
     }
   };
   return (
-    <ScrollArea className="h-[400px]">
+    <ScrollArea
+      className="h-[400px] p-4"
+      style={{
+        backgroundColor: currentTheme.backgroundColor,
+        color: currentTheme.fontColor,
+      }}
+    >
       <div
         className="mb-4 text-center
       font-bold"

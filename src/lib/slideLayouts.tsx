@@ -41,8 +41,7 @@ export const AccentLeft = {
             id: uuidv4(),
             type: "image" as ContentType,
             name: "Image",
-            content:
-              "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
             alt: "Title",
           },
           {
@@ -117,8 +116,7 @@ export const AccentRight = {
             type: "image" as ContentType,
             name: "Image",
             restrictToDrop: true,
-            content:
-              "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
             alt: "Title",
           },
         ],
@@ -152,8 +150,7 @@ export const ImageAndText = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
             ],
@@ -235,8 +232,7 @@ export const TextAndImage = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
             ],
@@ -588,8 +584,7 @@ export const TwoImageColumns = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
               {
@@ -618,8 +613,7 @@ export const TwoImageColumns = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
               {
@@ -676,8 +670,7 @@ export const ThreeImageColumns = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
               {
@@ -706,8 +699,7 @@ export const ThreeImageColumns = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
               {
@@ -737,8 +729,7 @@ export const ThreeImageColumns = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
               {
@@ -795,8 +786,7 @@ export const FourImageColumns = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
               {
@@ -825,39 +815,7 @@ export const FourImageColumns = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                alt: "Title",
-              },
-              {
-                id: uuidv4(),
-                type: "heading3" as ContentType,
-                name: "Heading3",
-                content: "",
-                placeholder: "Heading 3",
-              },
-              {
-                id: uuidv4(),
-                type: "paragraph" as ContentType,
-                name: "Paragraph",
-                content: "",
-                placeholder: "Start typing...",
-              },
-            ],
-          },
-
-          {
-            id: uuidv4(),
-            type: "column" as ContentType,
-            name: "Column",
-            content: [
-              {
-                id: uuidv4(),
-                type: "image" as ContentType,
-                name: "Image",
-                className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
               {
@@ -887,8 +845,37 @@ export const FourImageColumns = {
                 type: "image" as ContentType,
                 name: "Image",
                 className: "p-3",
-                content:
-                  "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
+                alt: "Title",
+              },
+              {
+                id: uuidv4(),
+                type: "heading3" as ContentType,
+                name: "Heading3",
+                content: "",
+                placeholder: "Heading 3",
+              },
+              {
+                id: uuidv4(),
+                type: "paragraph" as ContentType,
+                name: "Paragraph",
+                content: "",
+                placeholder: "Start typing...",
+              },
+            ],
+          },
+
+          {
+            id: uuidv4(),
+            type: "column" as ContentType,
+            name: "Column",
+            content: [
+              {
+                id: uuidv4(),
+                type: "image" as ContentType,
+                name: "Image",
+                className: "p-3",
+                content: "https://ucarecdn.com/0e5a1842-b117-415d-9f61-e1fa4b040bf9/upload.png",
                 alt: "Title",
               },
               {

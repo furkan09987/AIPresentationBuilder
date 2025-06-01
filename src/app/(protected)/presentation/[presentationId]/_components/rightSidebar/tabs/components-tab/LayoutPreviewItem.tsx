@@ -1,5 +1,6 @@
 import { LayoutSlides } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { useSlideStore } from "@/store/useSlideStore";
 import React from "react";
 
 type Props = {
@@ -12,6 +13,7 @@ type Props = {
 };
 
 const LayoutPreviewItem = ({ Icon, name, type, component, isSelected, onClick }: Props) => {
+  const { currentTheme } = useSlideStore();
   return (
     <button
       onClick={onClick}
@@ -23,6 +25,9 @@ const LayoutPreviewItem = ({ Icon, name, type, component, isSelected, onClick }:
         "hover:scale-105 transform",
         isSelected && "ring-2 ring-blue-500"
       )}
+      style={{
+        backgroundColor: currentTheme.gradientBackground,
+      }}
     >
       <div className="w-full aspect-[16/9] rounded-md border bg-gray-100 dark:bg-gray-700 p-2 shadow-sm hover:shadow-md transition-shadow duration-200">
         <Icon />

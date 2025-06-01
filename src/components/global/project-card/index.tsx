@@ -73,6 +73,7 @@ const ProjectCard = ({ createdAt, projectId, slideData, title, themeName, isDele
       });
       return;
     }
+
     try {
       const res = await deleteProject(projectId);
       if (res.status !== 200) {
@@ -81,12 +82,12 @@ const ProjectCard = ({ createdAt, projectId, slideData, title, themeName, isDele
         });
         return;
       }
-
       setOpen(false);
       router.refresh();
       toast.success("Başarılı!", {
         description: "Proje başarıyla silindi",
       });
+      setLoading(false);
     } catch (error) {
       console.log(error);
       toast.error("Opps!", {
@@ -94,6 +95,7 @@ const ProjectCard = ({ createdAt, projectId, slideData, title, themeName, isDele
       });
     }
   };
+
   return (
     <motion.div
       className={`group w-full flex flex-col gap-y-3 rounded-xl p-3 transition-colors ${

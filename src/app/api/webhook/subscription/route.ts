@@ -9,9 +9,10 @@ export async function POST(req: NextRequest) {
     const rawBody = await req.text();
     const body = JSON.parse(rawBody);
 
-    const { buyerUserID } = body.meta.custom_data;
+    console.log(body);
+    const { buyerUserId } = body.meta.custom_data;
 
-    if (!buyerUserID) {
+    if (!buyerUserId) {
       throw new Error("Geçersiz buyerUserID veya id yok");
     }
 
@@ -28,7 +29,7 @@ export async function POST(req: NextRequest) {
 
     const buyer = await client.user.update({
       where: {
-        id: buyerUserID,
+        id: buyerUserId,
       },
       data: {
         subscription: true,

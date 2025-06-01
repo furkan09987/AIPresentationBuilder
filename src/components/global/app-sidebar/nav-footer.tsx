@@ -24,13 +24,13 @@ const NavFooter = ({ prismaUser }: { prismaUser: User }) => {
     try {
       const res = await buySubscription(prismaUser.id);
       if (res.status !== 200) {
-        throw new Error("Failed to upgrade subscription");
+        throw new Error("Abonelik yenileme başarısız");
       }
       router.push(res.url);
     } catch (error) {
       console.error("error");
       toast.error("Error", {
-        description: "Something went wrong. Please try later.",
+        description: "Bir şeyler ters gitti",
       });
     } finally {
       setLoading(false);
@@ -42,12 +42,12 @@ const NavFooter = ({ prismaUser }: { prismaUser: User }) => {
       <SidebarMenuItem>
         <div className="flex flex-col gap-y-6 items-start group-data-[collapsible=icon]:hidden">
           {!prismaUser.subscription && (
-            <div className="flex flex-col items-start p-2 pb-3 gap-4 bg-background-80 rounded-xl">
+            <div className="flex flex-col items-start p-4 gap-4 bg-background-80 rounded-xl">
               <div className="flex flex-col items-start gap-1">
                 <p className="text-base font-bold">
-                  Get <span className="text-vivid">Creative AI</span>
+                  <span className="text-vivid">Yaratıcı AI Kullanarak</span>
                 </p>
-                <span className="text-sm dark:text-secondary">Unlock all features including AI and more</span>
+                <span className="text-sm dark:text-secondary">Bütün özelliklerin kilidini açın</span>
               </div>
               <div className="w-full bg-vivid-gradient p-[1px] rounded-full">
                 <Button
@@ -56,7 +56,7 @@ const NavFooter = ({ prismaUser }: { prismaUser: User }) => {
                   size={"lg"}
                   onClick={handleUpgrading}
                 >
-                  {loading ? "Upgrading..." : "Upgrade"}
+                  {loading ? "Premium'a geçiliyor.." : "Premium'a Geç"}
                 </Button>
               </div>
             </div>

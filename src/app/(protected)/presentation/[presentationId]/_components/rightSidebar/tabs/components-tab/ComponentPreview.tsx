@@ -1,5 +1,6 @@
 import { ContentItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { useSlideStore } from "@/store/useSlideStore";
 import React from "react";
 import { useDrag } from "react-dnd";
 
@@ -20,45 +21,20 @@ const ComponentCard = ({ item }: { item: ComponentItemProps }) => {
     }),
   });
   return (
-    <div
-      ref={drag as unknown as React.LegacyRef<HTMLDivElement>}
-      className={cn("border", isDragging ? "opacity-50" : "opacity-100")}
-    >
+    <div ref={drag as unknown as React.LegacyRef<HTMLDivElement>} className="border rounded-lg">
       <button
         className={cn(
           "flex flex-col items-center cursor-grab",
-          "active:cursor-grabbing gap-2 p-2",
-          "rounded-lg hover:bg-primary-10",
-          "transition-all duration-200",
+          "active:cursor-grabbing gap-2 p-2 rounded-lg",
+          "hover:bg-primary-10 transition-all duration-200",
           "text-center w-full",
           "hover:scale-105 transform"
         )}
       >
-        <div
-          className="w-full aspect-[16/9]
-        rounded-md border bg-gray-100
-        dark:bg-gray-700 p-2 shadow-sm
-        hover:shadow-md transition-shadow
-        duration-200"
-        >
-          <div
-            className="flex items-center
-  flex-col gap-2"
-          >
-            <span
-              className="text-2xl
-    text-primary"
-            >
-              {item.icon}
-            </span>
-          </div>
+        <div className="w-full aspect-[16/9] rounded-md border bg-gray-100 dark:bg-gray-700 p-2 shadow-sm hover:shadow-md transition-shadow duration-200">
+          <span className="text-2xl text-primary">{item.icon}</span>
         </div>
-        <span
-          className="text-xs text-gray-500
-  font-medium"
-        >
-          {item.name}
-        </span>
+        <span className="text-xs text-gray-500 font-medium">{item.name}</span>
       </button>
     </div>
   );
